@@ -1,0 +1,26 @@
+{
+  "name": "hospital_bed_mgt_system",
+  "version": "1.0.0",
+  "description": "a web app for managing hospital beds",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edrissa/Hospital_Bed_Mgt_System.git"
+  },
+  "author": "Edrissa Saine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edrissa/Hospital_Bed_Mgt_System/issues"
+  },
+  "homepage": "https://github.com/edrissa/Hospital_Bed_Mgt_System#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
