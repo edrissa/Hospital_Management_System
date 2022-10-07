@@ -12,9 +12,9 @@ const userSchema = mongoose.Schema({
         minLength: 8
     },
 
-    userPhone: {
+    userEmail: {
         type: String,
-        maxLength: 7,
+        maxLength: 25,
     }
 })
 
