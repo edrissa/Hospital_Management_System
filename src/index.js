@@ -3,25 +3,14 @@ const mongoose = require('mongoose')
 
 const express = require('express')
 const app = express()
+//const userRouter = require('./resources/user/user.controller')
 const port = process.env.port
+const connect = require('./utilities/connect')
 
 const middleware = require('./utilities/middleware')
 
 app.use(express.json())
 app.use(middleware.requestLogger)
-
-const URI = process.env.MONGODB_URI
-const connect = () => {
-  return mongoose.connect(
-    URI, 
-    {
-      useNewUrlParser: true,
-
-      useUnifiedTopology: true,
-      autoIndex: false
-    }
-  )
-}
 
 try {
   //mongoose.connect(URI)
@@ -70,48 +59,7 @@ app.get('/me', (req, res) => {
   res.json(me)
 })
 
-//Get One
-app.get('/api/users/:id', (req, res) => {
-  const id = req.params.id
-  const user = users.find((user) => user.id === Number(id))
-
-  if(user) {
-    res.json(user)
-  }
-  
-  else{
-    res.status(404).end()
-    //res.send("sorry user not found")
-  }
-})
-
-//Delete One
-app.delete('/api/users/:id', (req, res) => {
-  const id = req.params.id
-  users = users.filter((user) => user.id !== Number(id))
-
-  res.status(204).end()
-})
-
-//Get All
-app.get('/api/users', (req, res) => {
-  res.json(users)
-})
-
-// Create one
-app.post('/api/users', (req, res) => {
-  const content = req.body
-
-  //here we save the content to the database
-  res.json(content)
-})
-
-// Put
-app.put('api/users/:id', (req, res) =>{
-  const id = req.params.id
-
-  res.id
-})
+//app.use('/api/user/', userRouter)
 
 app.use(middleware.unknownEndpoint)
 
